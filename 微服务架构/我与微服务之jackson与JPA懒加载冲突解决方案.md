@@ -264,8 +264,7 @@ public final class GoodDetails {
         "id":121,
         "desc": "跑步鸡是只好鸡，用茶油做味道好极了，就是有点儿贵"
       }
-    },
-    ...
+    }
   ]
 }
 ```
@@ -319,7 +318,7 @@ public final class Config{
       "price": 128,
       "count": 10,
       "goodDetails": null,
-    ...
+    }
   ]
 }
 ```
@@ -373,7 +372,7 @@ public final class ShoppingCartServiceImpl
       "price": 128,
       "count": 10,
       "goodDetails": null,
-    ...
+    }
   ]
 }
 ```
@@ -524,6 +523,7 @@ public final class GoodDetails {
   private Good good;
 
 }
+```
 
 ```java
 public interface ShoppingCartRepository extends
