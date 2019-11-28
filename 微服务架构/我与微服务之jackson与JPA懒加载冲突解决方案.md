@@ -156,8 +156,8 @@ public interface ShoppingCartRepository extends
   ShoppingCart findById(cartId);
 }
 ```
-&emsp;&emsp;此时，一切看起来都不错，但当我们调用<span style="color: red">/shoppingCart/{cartId}</span>时，直到在ShoppingCartController中标注为“断点:tag”处，
-程序任然正常运行，但是return cart后，jackson序列化cart报错：<b style="color: red">实体间循环引用，无限递归将导致堆栈溢出</b>，
+&emsp;&emsp;此时，一切看起来都不错，但当我们调用<font color=red>/shoppingCart/{cartId}</font>时，直到在ShoppingCartController中标注为“断点:tag”处，
+程序任然正常运行，但是return cart后，jackson序列化cart报错：<b color=red>实体间循环引用，无限递归将导致堆栈溢出</b>，
 此问题可以通过以下两个方法解决：
 1. 对外键关联的父对象设置为@Jsonignore（不推荐）
 ```java
@@ -238,8 +238,8 @@ public final class GoodDetails {
 }
 ```
 
-&emsp;&emsp;修改后再调用<span style="color: red">/shoppingCart/{cartId}</span>，可能会出现以下两中情况：
-1. 报错：<b style="color: red">jackson尝试序列化Good实体中的goodDetails对象，但是该对象目前是一个Hibernate懒加载代理，序列化失败</b>
+&emsp;&emsp;修改后再调用<font color=red>/shoppingCart/{cartId}</font>，可能会出现以下两中情况：
+1. 报错：<b color=red>jackson尝试序列化Good实体中的goodDetails对象，但是该对象目前是一个Hibernate懒加载代理，序列化失败</b>
 2. 执行成功，jackson成功激活了Hibernate懒加载代理，将我们不需要的goodDetails也查询出来，返回如下json字符串：
 ```json
 {
@@ -274,8 +274,8 @@ public final class GoodDetails {
 &emsp;&emsp;接下来我们将给出“按需加载”与“按非需加载”两种解决方案。
 ### 2.1 按需加载(推荐)
 &emsp;&emsp;按需加载是指在jackson序列化实体之前，需要手动激活实体中要序列化的懒加载对象，
-以查询购物车及其商品列表API<span style="color: red;">/shoppingCart/{cartId}</span>为例。
-1. 依据JAP中HIbernate的版本，引入<span style="color: red;">jackson-datatype-hibernate5</span>工具
+以查询购物车及其商品列表API<font color=red>/shoppingCart/{cartId}</font>为例。
+1. 依据JAP中HIbernate的版本，引入<font color=red>jackson-datatype-hibernate5</font>工具
 ```xml
 <dependency>
   <groupId>com.fasterxml.jackson.datatype</groupId>
@@ -300,7 +300,7 @@ public final class Config{
   }
 }
 ```
-3. 调用<span style="color: red;">/shoppingCart/{cartId}</span>接口，返回我们期望的数据：
+3. 调用<font color=red>/shoppingCart/{cartId}</font>接口，返回我们期望的数据：
 ```json
 {
   "id": 123,
@@ -325,7 +325,7 @@ public final class Config{
 
 ### 2.2 按非需加载
 &emsp;&emsp;按非需加载是指jackson序列化实体时会激活所有关联的懒加载，那么在jackson序列化对象之前，
-将不需要的懒加载对象设置为null，以查询购物车及其商品列表API<span style="color: red;">/shoppingCart/{cartId}</span>为例。
+将不需要的懒加载对象设置为null，以查询购物车及其商品列表API<font color=red>/shoppingCart/{cartId}</font>为例。
 1. 设置不需要序列化的懒加载对象为null
 ```java
 @Service
@@ -354,7 +354,7 @@ public final class ShoppingCartServiceImpl
   }
 }
 ```
-2. 调用<span style="color: red;">/shoppingCart/{cartId}</span>接口，返回我们期望的数据：
+2. 调用<font color=red>/shoppingCart/{cartId}</font>接口，返回我们期望的数据：
 ```json
 {
   "id": 123,
@@ -409,10 +409,10 @@ public final class ShoppingCartServiceImpl
 }
 ```
 &emsp;&emsp;此时，已经解决了我们提出的问题，但是通过打印sql语句，我们发下每一次查询Hibernate会像数据库发起多次查询，
-也就是<span style="color: red;">N+1</span>查询问题。
+也就是<font color=red>N+1</font>查询问题。
 
 ## 三、sql优化
-&emsp;&emsp;为了解决<span style="color: red;">N+1</span>问题，优化查询sql，Spring JAP提供@NamedEntityGraph与
+&emsp;&emsp;为了解决<font color=red>N+1</font>问题，优化查询sql，Spring JAP提供@NamedEntityGraph与
 @EntityGraph两组标签来规划实体图，优化后的实例代码如下：
 ```java
 @Data
@@ -537,9 +537,9 @@ public interface ShoppingCartRepository extends
   ShoppingCart findById(cartId);
 }
 ```
-&emsp;&emsp;再次调用<span style="color: red;">/shoppingCart/{cartId}</span>接口，
+&emsp;&emsp;再次调用<font color=red>/shoppingCart/{cartId}</font>接口，
 我们发现Hibernate会组合查询的sql，只向数据库发送1次sql查询请求，从而解决了N+1的问题，
 提高了查询性能。
-&emsp;&emsp;<span style="color: red;">EntityGraph.EntityGraphType</span>具有<b>FETCH</b>与<b>LOAD</b>两个值，
+&emsp;&emsp;<font color=red>EntityGraph.EntityGraphType</font>具有<b>FETCH</b>与<b>LOAD</b>两个值，
 两者的区别在于实体中没有在@NamedEntityGraph的attributeNodes中指定的外键对象，FETCH表明未指定的外键对象采用懒加载，
 LOAD表明未指定的外键对象采用自定义方法或者默认方法。
