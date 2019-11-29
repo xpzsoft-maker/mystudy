@@ -74,8 +74,7 @@ logs:
 listen: 0.0.0.0:4873 #默认没有，只能本机以localhost访问，添加后可远程访问
 ```
 5. 重启`sinopia`，通过`http://ip:4873`访问私有库
-6. `sinopia`有[docker镜像](https://hub.docker.com/r/keyvanfatehi/sinopia/)
-7. 测试私有仓库
+6. 测试私有仓库
 ```sh
 ssh 客户机 #进入一个测试用的客户机
 npm config set registry http://ip:4873 #修改npm远程仓库地址为sinopia私有仓库地址
@@ -84,3 +83,4 @@ npm install jquery #测试从私有库中安装jquery，由于私有库中没有
 ssh sinopia服务器
 cd sinopia-home/storage #进入sinopia的启动目录，jquery已经在storage中
 ```
+7. `sinopia`有[docker镜像](https://hub.docker.com/r/keyvanfatehi/sinopia/)
