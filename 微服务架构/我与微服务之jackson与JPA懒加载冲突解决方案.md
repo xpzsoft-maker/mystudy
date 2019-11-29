@@ -156,8 +156,8 @@ public interface ShoppingCartRepository extends
   ShoppingCart findById(cartId);
 }
 ```
-&emsp;&emsp;此时，一切看起来都不错，但当我们调用 $\color{red}{红色字}$ <font color=red>/shoppingCart/{cartId}</font>时，直到在ShoppingCartController中标注为“断点:tag”处，
-程序任然正常运行，但是return cart后，jackson序列化cart报错：<b color=red>实体间循环引用，无限递归将导致堆栈溢出</b>，
+&emsp;&emsp;此时，一切看起来都不错，但当我们调用`/shoppingCart/{cartId}`时，直到在ShoppingCartController中标注为“断点:tag”处，
+程序任然正常运行，但是return cart后，jackson序列化cart报错：`<b>实体间循环引用，无限递归将导致堆栈溢出</b>`，
 此问题可以通过以下两个方法解决：
 1. 对外键关联的父对象设置为@Jsonignore（不推荐）
 ```java
