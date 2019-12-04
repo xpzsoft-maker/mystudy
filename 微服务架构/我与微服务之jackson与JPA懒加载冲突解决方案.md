@@ -210,7 +210,7 @@ public final class ShoppingCart extends BaseEntity {
 @Data
 @Entity
 @Table(name = "GOOD", schema = "testDB")
-public final class Good {
+public final class Good extends BaseEntity{
   @Override
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -225,7 +225,7 @@ public final class Good {
 @Data
 @Entity
 @Table(name = "GOOD_DETAILS", schema = "testDB")
-public final class GoodDetails {
+public final class GoodDetails extends BaseEntity{
   @Override
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -423,10 +423,11 @@ public final class ShoppingCartServiceImpl
     attributeNodes  = {
         @NamedAttributeNode("goods")
     })
-public final class ShoppingCart {
+public final class ShoppingCart extends BaseEntity{
   /**
   * 主键
   */
+  @Override
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
@@ -450,10 +451,11 @@ public final class ShoppingCart {
         @NamedAttributeNode("shoppingCart"),
         @NamedAttributeNode("goodDetails")
     })
-public final class Good {
+public final class Good extends BaseEntity{
   /**
   * 主键
   */
+  @Override
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
@@ -499,10 +501,11 @@ public final class Good {
     attributeNodes  = {
         @NamedAttributeNode("good")
     })
-public final class GoodDetails {
+public final class GoodDetails extends BaseEntity{
   /**
   * 主键
   */
+  @Override
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
