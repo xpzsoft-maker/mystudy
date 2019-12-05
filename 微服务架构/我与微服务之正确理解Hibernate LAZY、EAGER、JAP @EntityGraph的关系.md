@@ -8,12 +8,14 @@
 &emsp;&emsp;为了表达更清楚，本文接下来的例子均将以订单`Order`和商品`Good`和商品明细`GoodDetails`为例进行说明。
 设定三者数据表如下表所示：   
 ORDER表
+
  id | code 
  ---- | -----
  1 | abc 
  2 | def 
 
 GOOD表
+
  id | name | order_id 
  ---- | ---- | ---- 
  1 | 歼20模型 | 1 
@@ -21,6 +23,7 @@ GOOD表
  3 | 京东跑步鸡 | 2 
 
 GOOD_DETAILS表
+
  id | count | good_id 
  ---- | ---- | ---- 
  1 | 100 | 1 
