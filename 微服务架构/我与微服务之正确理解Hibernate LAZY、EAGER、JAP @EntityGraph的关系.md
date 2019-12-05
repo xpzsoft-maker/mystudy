@@ -2,7 +2,7 @@
 
 &emsp;&emsp;`Spring Data JPA`默认采用`Hibernate`作为`ORM`框架，`Hibernate`在处理关系实体的外键关联时，
 有`LAZY`与`EAGER`两种方式，`LAZY`虽然解决了按需加载的问题，但同时也带来了`N+1`访问问题，增加了数据库的压力，
-于是`Spring Data JPA`提出了`@EntityGraph`注解，解决N+1问题。本文将说明`LAZY`、`EAGER`与`@EntityGraph`的关系及应用场景。 $\color{red}{红色字}$
+于是`Spring Data JPA`提出了`@EntityGraph`注解，解决N+1问题。本文将说明`LAZY`、`EAGER`与`@EntityGraph`的关系及应用场景。
 
 ## 二、关系
 &emsp;&emsp;为了表达更清楚，本文接下来的例子均将以订单`Order`和商品`Good`和商品明细`GoodDetails`为例进行说明。
