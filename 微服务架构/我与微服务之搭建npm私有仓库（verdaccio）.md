@@ -2,7 +2,7 @@
 &emsp;&emsp;微服务开发时，前端往往会有一些公共组件，我们希望这些组件对内公用，但是又不能对外发布到`npm`仓库，
 此时我们需要构建一个私有的前端`npm`仓库。
 ## 二、搭建verdaccio前端私有仓库
-1. 通过`docker`现在`verdaccio/verdaccio`镜像(本文档是`**v4.3.5**`)
+1. 通过`docker`现在`verdaccio/verdaccio`镜像(本文档是**`v4.3.5`**)
 ```sh
 docker pull verdaccio/verdaccio:4.3.5
 ```
