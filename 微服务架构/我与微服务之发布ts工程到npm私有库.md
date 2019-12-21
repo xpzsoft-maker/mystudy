@@ -7,6 +7,7 @@
 apt-get install nodejs
 apt-get install npm
 npm install -g tsc
+npm install -g typescript
 ```
 2. 构建npm项目
 ```sh
