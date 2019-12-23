@@ -71,3 +71,18 @@ docker run -p 6379:6379 -v $PWD/data:/data --name="redis" -d redis:3.2 redis-ser
 
 redis-server --appendonly yes : 在容器执行redis-server启动命令，并打开redis持久化配置
 ```
+
+## 10. docker 常用image启动命令
+1. verdaccio
+```sh
+docker run -it --rm --name verdaccio -p 4873:4873 verdaccio/verdaccio
+```
+
+2. redis
+```sh
+docker run -p 6379:6379 -v $PWD/data:/data --name="redis" -d redis:3.2 redis-server --appendonly yes
+```
+
+3. nginx
+```sh
+```

@@ -7,6 +7,9 @@
 ```sh
 sudo mv docker-compose-Linux-x86_64 /usr/local/bin/docker-compose
 chmod +x docker-compose
+
+// 从远程服务器拷贝文件
+scp ub64@192.168.0.234:/usr/local/bin/docker-compose ./docker-compose
 ```
 
 ## 2. 配置镜像的构建与启动
