@@ -18,7 +18,7 @@ cp docker-local-storage-volume ~/Deploy/verdaccio
 4. 修改`~/Deploy/verdaccio`中的`docker-compose.yaml`文件与`conf/config.yaml`
 
 ```yaml
-version: '2.1'
+version: '3'
 services:
   verdaccio:
     image: verdaccio/verdaccio:4.3.5
