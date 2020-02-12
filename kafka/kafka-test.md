@@ -50,5 +50,5 @@ kafka-console-producer.sh --topic=mytest --broker-list 192.168.13.142:9902
 ```
 5. 消费消息
 ```sh
-kafka-console-consumer.sh --bootstrap-server 192.168.13.142:9902 --from-beginning --topic topic
+kafka-console-consumer.sh --bootstrap-server 192.168.13.142:9902 --from-beginning --topic mytest
 ```
