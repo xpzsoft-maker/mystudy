@@ -63,7 +63,7 @@ docker load -i xxx.tar
 
 ## 9. docker 启动redis
 ```sh
-docker run -p 6379:6379 -v $PWD/data:/data --name="redis" -d redis:3.2 redis-server --appendonly yes
+docker run --name redis -p 6379:6379 -v $PWD/data:/data -d redis:5.0.0 redis-server --appendonly yes --requirepass "ss#Df#x21"
 
 -p 6379:6379 : 将容器的6379端口映射到主机的6379端口
 

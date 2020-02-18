@@ -22,8 +22,8 @@ services:
       - zookeeper
     environment:
       - KAFKA_BROKER_ID=0
-      - KAFKA_ZOOKEEPER_CONNECT=192.168.13.142:2181
-      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.13.142:9902
+      - KAFKA_ZOOKEEPER_CONNECT=192.168.13.142:2181 # ip不要配置为localhost或者127.0.0.1
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.13.142:9902 ip不要配置为localhost或者127.0.0.1
       - KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9902
     volumes:
       - $PWD/docker.sock:/var/run/docker.sock
