@@ -33,4 +33,8 @@ deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe
 deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
 ```
 
+```sh
+sudo apt-get purge xxxx(卸载要卸载的软件或者冲突的软件)
+```
+
 ## 2 打开“软件和更新”，勾选“可从互联网下载”的程序选项，配置“主服务器”为源地址
