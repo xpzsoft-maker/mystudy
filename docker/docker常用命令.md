@@ -1,3 +1,10 @@
+<!--
+ * @Description: 
+ * @Author: xpzsoft
+ * @Date: 2019-08-22 14:04:33
+ * @LastEditors: xpzsoft
+ * @LastEditTime: 2020-06-15 10:22:33
+--> 
 # Docker常用命令
 
 ## 1. 容器命令
@@ -85,4 +92,10 @@ docker run -p 6379:6379 -v $PWD/data:/data --name="redis" -d redis:3.2 redis-ser
 
 3. nginx
 ```sh
+```
+
+4. mysql
+
+```sh
+docker run -p 3306:3306  --restart=always  --privileged=true --name mysql -v /opt/mysql/data:/var/lib/mysql -v /opt/mysql/my.cnf:/etc/mysql/my.cnf -e MYSQL_ROOT_PASSWORD="123456" -d mysql:5.7
 ```
